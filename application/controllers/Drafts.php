@@ -15,7 +15,7 @@ class Drafts extends Controller {
         $page->title             = 'Drafts';
         $page->page_subtitle     = 'Manage your draft messages';
         $page->page_title        = 'Drafts';
-        $page->main              = 'inbox/view_inbox';
+        $page->main              = 'view_test';
         $page->data              = [];
         $page->active            = 'drafts';
 

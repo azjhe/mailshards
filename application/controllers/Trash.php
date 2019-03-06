@@ -19,7 +19,7 @@ class Trash extends Controller {
         $page->title             = 'Trash';
         $page->page_subtitle     = 'Manage your deleted messages';
         $page->page_title        = 'Trash';
-        $page->main              = 'inbox/view_inbox';
+        $page->main              = 'view_test';
         $page->data              = [];
         $page->active            = 'trash';
 
