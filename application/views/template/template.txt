@@ -1,0 +1,23 @@
+Template format
+
+<header>
+
+	<sidebar>
+
+	<main>
+
+		<navbar>
+
+		<alert>
+
+		<content-container>
+
+			 MAIN CONTENT HERE...
+
+		</content-container>
+
+		<sticky-footer>
+
+	</main>
+
+</footer>
