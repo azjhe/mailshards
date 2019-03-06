@@ -526,4 +526,4 @@ $config['proxy_ips'] = '';
 | Brand title
 | Config of your brand title
 */
-$config['brand'] = 'Ticketing';
+$config['brand'] = 'MailShards';

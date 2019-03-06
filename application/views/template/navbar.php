@@ -21,34 +21,26 @@
       </div>
 
     <ul class="navbar-nav border-left flex-row ">
+
+    <!--Notification area
       <li class="nav-item border-right dropdown notifications">
         <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="nav-link-icon__wrapper">
             <i class="material-icons">&#xE7F4;</i>
-
-            <?php if ($unreadMessages > 0 ): ?>
-                <span class="badge badge-pill badge-danger"><?php echo $unreadMessages; ?></span>
-            <?php endif; ?>
-
+                <span class="badge badge-pill badge-danger">1</span>
           </div>
         </a>
-
         <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink">
-
-        <?php foreach ($messages as $row): ?>
-
             <a class="dropdown-item" href="#">
               <div class="notification__content">
-                <span class="notification__category"><?php echo $row->subject; ?></span>
-                <p><strong><?php echo $row->name; ?></strong></p>
-                <p><?php echo $row->content; ?></p>
+                <span class="notification__category">Subject</span>
+                <p>Content</p>
               </div>
             </a>
 
-        <?php endforeach; ?>
-
           <a class="dropdown-item notification__all text-center" href="#"> View all Notifications </a>
         </div>
+        -->
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
