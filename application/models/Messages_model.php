@@ -10,29 +10,37 @@ class Messages_model extends CI_Model {
         $this->load->database();
     }
 
-    function getAllMessages()
+    function getAllMessages($userId)
     {
-        $sql = "SELECT A.userid, A.sendto, B.name, A.subject, A.content  
+        $sql = "SELECT A.contactid, A.sendto, B.name, A.subject, A.content
                 FROM messages A
-                INNER JOIN users B ON A.userid=B.id
-                WHERE A.userid=1
+                INNER JOIN contacts B ON A.sendto=B.id
+                WHERE B.userid=?
                 AND issent
                 AND NOT isread
                 ORDER BY dateadded DESC
                 LIMIT 3;";
 
-        return $this->db->query($sql);
+        return $this->db->query($sql, [$userId]);
     }
 
-    function getUnreadMessageCount()
+    function getMessageById($sendTo, $messageId)
     {
-        $sql = "SELECT A.userid, A.sendto, B.name, A.subject, A.content  
+        $sql = "SELECT A.contactid, A.sendto, B.name, A.subject, A.content, A.dateadded
                 FROM messages A
-                INNER JOIN users B ON A.userid=B.id
-                WHERE A.userid=1
+                INNER JOIN contacts B ON A.contactid=B.id
+                INNER JOIN users C ON B.userid=C.id
+                WHERE A.sendto=?
                 AND issent
-                AND NOT isread";
+                AND A.id=?";
 
-        return $this->db->query($sql)->num_rows();
+        return $this->db->query($sql, [$sendTo, $messageId]);
+    }
+
+    function getUnreadMessageCount($sendTo)
+    {
+        $sql = "SELECT * FROM messages WHERE issent AND NOT isread AND sendto=?";
+
+        return $this->db->query($sql, [$sendTo])->num_rows();
     }
 }

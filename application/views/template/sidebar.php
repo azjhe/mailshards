@@ -1,11 +1,10 @@
 
 <?php
-    $ci =&get_instance();
+    $userId = $this->config->item('userid');
+    $ci =& get_instance();
     $ci->load->model('messages_model');
-    $messages = $ci->messages_model->getAllMessages()->result();
-    $messageData = $ci->messages_model->getAllMessages()->row();
-
-    $unreadMessages = $ci->messages_model->getUnreadMessageCount();
+    $messageData    = $ci->messages_model->getAllMessages($userId)->row();
+    $unreadMessages = $ci->messages_model->getUnreadMessageCount($userId);
 ?>
 
 <!-- Main Sidebar -->

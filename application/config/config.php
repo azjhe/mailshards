@@ -527,3 +527,5 @@ $config['proxy_ips'] = '';
 | Config of your brand title
 */
 $config['brand'] = 'MailShards';
+
+$config['userid'] = 1;

@@ -1,11 +1,9 @@
 
 <?php
-    $ci =&get_instance();
-    $ci->load->model('messages_model');
-    $messages = $ci->messages_model->getAllMessages()->result();
-    $messageData = $ci->messages_model->getAllMessages()->row();
-
-    $unreadMessages = $ci->messages_model->getUnreadMessageCount();
+    $userId = $this->config->item('userid');
+    $ci = &get_instance();
+    $ci->load->model('user_model', 'userModel');
+    $userData = $ci->userModel->getUserData($userId);
 ?>
 
 <!-- Main Navbar -->
@@ -44,8 +42,8 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <img class="user-avatar rounded-circle mr-2" src="<?php echo base_url('asset/images/avatars/'). $messageData->userid .'.jpg'; ?>" alt="User Avatar">
-          <span class="d-none d-md-inline-block"><?php echo $messageData->name; ?></span>
+          <img class="user-avatar rounded-circle mr-2" src="<?php echo base_url('asset/images/avatars/'. $userData->id .'.jpg'); ?>" alt="User Avatar">
+          <span class="d-none d-md-inline-block"><?php echo $userData->name; ?></span>
         </a>
         <div class="dropdown-menu dropdown-menu-small">
           <a class="dropdown-item" href="user-profile-lite.html">
