@@ -27,7 +27,6 @@ class Page {
     // active / selected menu
     public $active_link;
 
-
     // main view to be display
     public $main;
 
